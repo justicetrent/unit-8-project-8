@@ -61,3 +61,17 @@ router.post('/:id', (req, res) => {
         })
         .catch(err => console.log(err))
 })  
+
+router.post('/:id/delete', (req, res) => {
+    Books.findByPk(req.params.id)
+        .then(Book => {
+            if (Book) {
+                return Book.destroy();
+            } else {
+                res.render('error')
+            }
+        })
+        .then(() => res.redirect('/'))
+})
+
+module.exports = router;
