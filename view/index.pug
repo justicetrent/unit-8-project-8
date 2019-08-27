@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    h1.main-title SQL Library Manager
+    div.head
+        form.search-form(action='/books/search')
+            input(type='search', name='term', placeholder='title, author etc...')
+            input(type='submit', value='Search', id="searchSubmit")
+        p
+            a.button(href='/books/new') Create New Book
+    table
+        tr
+            th Title
+            th Author
+            th Genre
+            th Year
+        each book in books
+            tr.bookRow
+                td
+                    a(href=`/books/${book.id}`) #{book.title}
+                td
+                    a= book.author
+                td
+                    a= book.genre
+                td
+                    a= book.year
+    div.links
+    script(src='/static/js/app.js')

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
-const Config = require('../config/config');
+const Config = require('./config/config');
 
 app.set('view engine', 'pug');
 
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     console.log('Error status:', err.status);
     res.status(err.status || 500);
     if (err.status === 404) {
-        res.render('errorNotFound')
+        res.render('page-not-found')
     } else {
         res.render('error')
     }

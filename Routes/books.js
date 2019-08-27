@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const Books = require('../models/Books');
+const Books = require('../models/Book').
 
+//******Routes***********
+
+// route that renders the home page of the webpage. 
 router.get('/', (req, res) => {
     Books.findAll()
         .then(books => {
@@ -9,9 +12,12 @@ router.get('/', (req, res) => {
         })
         .catch(err => console.log(err))
 })
-
+// Route that renders a page that allows the user to update book information 
 router.get('/new', (req, res) => res.render('new-book'));
-
+// Route that measures whether or not the new user input matches the criteria necessary to update the 
+// the library.It redirects to the library, and through the redirect the library copies the new information.
+// if user information matches the criteria, it changes if not, it takes the changes that are correct and updates, and 
+// throws an error for the rest 
 router.post('./new', (req, res) => {
     let { title, author, genre, year } = req.body;
     Books.create({
@@ -60,7 +66,7 @@ router.post('/:id', (req, res) => {
             }
         })
         .catch(err => console.log(err))
-})  
+})
 
 router.post('/:id/delete', (req, res) => {
     Books.findByPk(req.params.id)

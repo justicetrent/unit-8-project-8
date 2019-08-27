@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-const Config = require('../config/config');
+
 
 const Books = Config.define('book', {
   title: {
