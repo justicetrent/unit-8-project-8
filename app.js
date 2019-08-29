@@ -17,14 +17,15 @@ app.get('/', (req, res) => res.redirect('/books'));
 app.use('/books', require('./routes/books'));
 
 app.use((req, res, next) => {
-    res.locals.error = err;
-    console.log('Error status:', err.status);
-    res.status(err.status || 500);
-    if (err.status === 404) {
-        res.render('page-not-found')
-    } else {
-        res.render('error')
-    }
+    const err = new Error('error');
+    err.status = 404;
+    next(err);
+    res.render('error')
+    console.log(err);
+});
+app.use((err, req, res, next) => {
+    res.locals.error = err
+    res.status(err.status)
 });
 
 Config.sync()

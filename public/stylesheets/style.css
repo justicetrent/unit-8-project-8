@@ -1,11 +1,12 @@
 body {
-  background-image: url('https://ae01.alicdn.com/kf/HTB1JTh7Iv5TBuNjSspcq6znGFXaZ/DIY-frame-Array-War-Background-Fantasy-Artwork-Fabric-Silk-Poster-Print-Picture-For-Home-Decoration.jpg');
+  background-image: url('https://images.unsplash.com/photo-1464457312035-3d7d0e0c058e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');
+  background-size: cover;
   padding: 10px 50px 50px;
   font: 18px "Garamond", serif;
 }
 
 a {
-  color: #019875;
+  color: silver;
   text-decoration: none;
   font-weight: bold;
   transition: 0.4s;
@@ -17,7 +18,7 @@ a {
 
 a.button, input[type=submit] {
   color: white;
-  background: #019875;
+  background: silver ;
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
   padding: 10px 14px 12px;
   font-size: 14px;
@@ -35,7 +36,7 @@ input[type=submit] {
 }
 
   a.button:hover, input[type=submit]:hover {
-    background-color: #01b189;
+    background-color: black;
   }
 
 p {
