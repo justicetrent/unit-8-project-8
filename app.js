@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     const err = new Error('error');
     err.status = 404;
     next(err);
-    res.render('error')
+    res.render('page-not-found')
     console.log(err);
 });
 app.use((err, req, res, next) => {

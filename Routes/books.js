@@ -57,9 +57,13 @@ router.post('/:id/delete', (req, res) => {
 router.get('/:id', (req, res) => {
     Books.findByPk(req.params.id)
         .then(book => {
-            res.render('update-book', { book });
+            if (book) {
+                res.render('update-book', { book }) 
+            } else {
+                res.render('page-not-found');
+            }
         })
-        .catch(err => console.log(err))
+        .catch(err => res.render('page-not-found'))
 });
 
 
